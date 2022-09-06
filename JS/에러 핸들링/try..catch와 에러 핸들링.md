@@ -26,7 +26,7 @@ try{
 }
 ```
 
-#### 동작 알고리즘
+### 동작 알고리즘
 
 1. `try {...}` 안의 코드 실행
 2. 에러가 없다면 `try` 안의 마지막 줄까지 실행되고, `catch` 블록은 건너뛴다.
@@ -35,7 +35,7 @@ try{
 
 <br>
 
-#### ⚠️ `try..catch`는 런타임 에러에만 동작한다.
+### ⚠️ `try..catch`는 런타임 에러에만 동작한다.
 
 `try..catch`는 **실행 가능한 코드**에만 동작한다. 
 
@@ -49,7 +49,7 @@ try{
 
 <br>
 
-#### ⚠️ `try..catch`는 동기적으로 동작한다.
+### ⚠️ `try..catch`는 동기적으로 동작한다.
 
 `setTimeout`처럼 **스케줄 된(scheduled) 코드**에서 발생한 예외는 `try..catch`에서 잡아낼 수 없다.
 
@@ -92,7 +92,7 @@ try {
 }
 ```
 
-#### 구성 프로퍼티
+### 구성 프로퍼티
 
 - `name`
   - 에러 이름
@@ -104,7 +104,7 @@ try {
   - 현재 호출 스택을 의미한다.
   - 에러를 유발한 중첩 호출들의 순서 정보를 가진 문자열로 디버깅 목적으로 사용된다.
 
-#### 예시
+### 예시
 
 ```javascript
 try {
@@ -228,13 +228,13 @@ try {
 
 이런 문제를 피하고자 *다시 던지기(rethrowing)*를 사용한다. **catch는 알고 있는 에러만 처리하고 나머지는 다시 던져야 한다.**
 
-#### 방법
+### 방법
 
 1. catch가 모든 에러를 받는다.
 2. `catch(err) {...}` 블록 안에서 에러 객체 `err`를 분석한다.
 3. 에러 처리 방법을 알지 못하면 `throw err`를 한다.
 
-#### instanceof 사용하기
+### instanceof 사용하기
 
 ```javascript
 try {
@@ -256,7 +256,7 @@ try {
 
   - 보통 에러타입을 `instanceof` 명령어로 체크한다.
 
-#### 예시
+### 예시
 
 ````javascript
 let json = '{ "age": 30 }'; // 불완전한 데이터
@@ -289,7 +289,7 @@ try {
 
 
 
-#### 다시 던져진 에러 처리
+### 다시 던져진 에러 처리
 
 ```javascript
 function readData() {
@@ -331,7 +331,7 @@ try {
 }
 ```
 
-#### finally 안의 코드 실행 시점
+### finally 안의 코드 실행 시점
 
 - 에러가 없는 경우 - `try` 실행이 끝난 후
 - 에러가 있는 경우 - `catch` 실행이 끝난 후
@@ -346,7 +346,7 @@ try {
 
 자바스크립트 호스트 환경 대다수는 자체적으로 에러 처리 기능을 제공한다. Node.js의 `process.on("uncaughtException")`이나 브라우저 환경에선 `window.onerror`를 이용해서 처리할 수 있다.
 
-#### 문법
+### 문법
 
 ```javascript
 window.onerror = function(message, url, line, col, error) {
@@ -366,13 +366,17 @@ window.onerror = function(message, url, line, col, error) {
 
 전역 핸들러 `window.onerror`는 죽어버린 스크립트를 복구하려는 목적으로는 잘 사용하지 않고 개발자에게 에러 메시지를 보내는 용도로 사용한다.
 
-#### 에러 로깅 관련 상용 서비스
+<br>
+
+### 에러 로깅 관련 상용 서비스
 
 1. [https://errorception.com](https://errorception.com/) 
 
 2. [http://www.muscula.com](http://www.muscula.com/)
 
-#### 서비스 동작 프로세스
+<br>
+
+### 서비스 동작 프로세스
 
 - 서비스를 가입하면 자바스크립트 파일 혹은 스크립트 url을 받게 되는데, 개발자는 이 파일을 페이지에 삽입한다.
 - 받은 파일은 커스텀 `window.onerror` 함수를 설정한다.
